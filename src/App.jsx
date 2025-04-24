@@ -27,7 +27,7 @@ function App() {
         </section>
         <section id="tab-content">
           {!activeTab ? (
-            <p>Please select the tab</p>
+            <p>Select the tab to see tab content.</p>
           ) : (
             CORE_CONCEPTS.filter((item) => item.title === activeTab).map(
               (item, index) => (
