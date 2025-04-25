@@ -1,4 +1,12 @@
-export function Header({ data }) {
+interface HeaderProps {
+  data: {
+    image: string;
+    title: string;
+    description: string;
+  }[];
+}
+
+export function Header({ data }: HeaderProps) {
   return (
     <header>
       <h1>React essentials</h1>

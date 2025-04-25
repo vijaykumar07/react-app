@@ -1,47 +1,27 @@
-import { useState } from "react";
-import { Header } from "./Header";
-import "./index.css";
-import { CORE_CONCEPTS } from "./data";
-import { Tab } from "./Tab";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import PageNotFound from './pages/PageNotFound';
 
 function App() {
-  const [activeTab, setActiveTab] = useState();
-  const handleTabClick = (title) => {
-    setActiveTab(title);
-  };
+  
   return (
-    <>
-      <Header data={CORE_CONCEPTS} />
-      <main>
-        <section id="examples">
-          <nav className="menu">
-            {CORE_CONCEPTS.map((item, index) => (
-              <Tab
-                key={index}
-                isSelected={item.title === activeTab}
-                title={item.title}
-                handleClick={handleTabClick}
-              />
-            ))}
-          </nav>
-        </section>
-        <section id="tab-content">
-          {!activeTab ? (
-            <p>Select the tab to see tab content.</p>
-          ) : (
-            CORE_CONCEPTS.filter((item) => item.title === activeTab).map(
-              (item, index) => (
-                <div key={index} className="card">
-                  <img src={item.image} alt={item.title} />
-                  <h3>{item.title}</h3>
-                  <code>{item.description}</code>
-                </div>
-              )
-            )
-          )}
-        </section>
-      </main>
-    </>
+    <Router>
+      <nav style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>
+        <Link to="/" style={{ marginRight: 10 }}>Home</Link>
+        <Link to="/about" style={{ marginRight: 10 }}>About</Link>
+        <Link to="/contact">Contact</Link>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </Router>
   );
 }
 
