@@ -37,16 +37,6 @@ const ContactForm = () => {
       <h2 className="text-base/7 font-semibold text-white-900">Contact Us</h2>
 
       <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-        {/* <div className="sm:col-span-4"> 
-      <label htmlFor="username" className="block text-sm/6 font-medium text-gray-900">
-                Username
-              </label>
-        <input
-          {...register('name', { required: 'Name is required' })}
-        />
-        {errors.name && <p style={{ color: 'red' }}>{errors.name.message}</p>}
-        </div> */}
-
         <div className="sm:col-span-4">
           <label
             htmlFor="username"
